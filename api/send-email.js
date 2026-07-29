@@ -29,7 +29,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         from: 'Portfolio Contact <onboarding@resend.dev>', // swap once your domain is verified
-        to: ['imtiazabdullah900@gmail.com'], // <-- put your real inbox here
+        to: ['abdullahahmedwala@gmai.com'], // <-- put your real inbox here
         reply_to: email,
         subject: `New portfolio message: ${subject}`,
         html: `
