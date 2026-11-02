@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { chatbotConfig } from "@/data/chatbot";
+import { hero } from "@/data/hero";
 import Icon from "@/components/ui/Icon";
 
 export default function Chatbot() {
@@ -44,10 +45,10 @@ export default function Chatbot() {
         }),
       });
 
-      const data = await res.json();
+      const data = await res.json().catch(() => ({}));
       const reply =
         data?.reply ||
-        "Sorry, I couldn't answer right now. Please use the Contact section.";
+        "Sorry, I couldn't answer right now. Please use the Contact section or WhatsApp me.";
 
       setMessages((prev) => [...prev, { role: "assistant", content: reply }]);
     } catch {
@@ -56,7 +57,7 @@ export default function Chatbot() {
         {
           role: "assistant",
           content:
-            "Connection issue. Please try again or contact Abdullah via WhatsApp/email.",
+            "Connection issue. Please try again, or WhatsApp / email me from the Contact section.",
         },
       ]);
     } finally {
@@ -76,11 +77,10 @@ export default function Chatbot() {
           <div className="aqt-chat-header">
             <div className="aqt-chat-title">
               <span className="aqt-chat-avatar">
-                <Icon name="fa-solid fa-robot" />
+                <img src={hero.photo} alt="Abdullah Qureshi" />
               </span>
               <div>
-                <strong>{chatbotConfig.name}</strong>
-                <small>Ask about services, projects & contact</small>
+                <strong>Abdullah Qureshi</strong>
               </div>
             </div>
             <button
@@ -145,14 +145,16 @@ export default function Chatbot() {
         </div>
       )}
 
-      <button
-        type="button"
-        className="aqt-chat-fab"
-        aria-label={open ? "Close chatbot" : "Open chatbot"}
-        onClick={() => setOpen((v) => !v)}
-      >
-        <Icon name={open ? "fa-solid fa-xmark" : "fa-solid fa-comments"} />
-      </button>
+      {!open && (
+        <button
+          type="button"
+          className="aqt-chat-fab"
+          aria-label="Open chatbot"
+          onClick={() => setOpen(true)}
+        >
+          <Icon name="fa-solid fa-comments" />
+        </button>
+      )}
     </div>
   );
 }

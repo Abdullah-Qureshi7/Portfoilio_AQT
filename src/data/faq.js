@@ -4,6 +4,8 @@
 
 export const faq = {
   title: "Questions People Ask",
+  subtitle:
+    "Clear answers about timelines, collaboration, payments, and support before we start working together.",
   items: [
     {
       question: "What is your typical turnaround time?",

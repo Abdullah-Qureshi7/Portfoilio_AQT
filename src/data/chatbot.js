@@ -11,14 +11,14 @@ import { experience } from "./experience";
 import { faq } from "./faq";
 
 export const chatbotConfig = {
-  name: "AQT Assistant",
+  name: "Abdullah Qureshi",
   welcome:
-    "Hi! I'm Abdullah's portfolio assistant. Ask me about his services, projects, skills, or how to contact him.",
-  placeholder: "Ask about services, projects, contact...",
+    "Hi I am Abdullah Qureshi. How may I help you in your business and company?",
+  placeholder: "Ask me about my work...",
   suggestions: [
     "What services do you offer?",
     "Show me your projects",
-    "How can I contact Abdullah?",
+    "How can I contact you?",
     "What is your tech stack?",
   ],
 };
@@ -40,7 +40,7 @@ export function buildKnowledgeContext() {
   const socials = socialLinks.map((s) => `${s.label}: ${s.href}`).join("\n");
 
   const exp = experience.items
-    .map((e) => `- ${e.date} | ${e.company}: ${e.description}`)
+    .map((e) => `- ${e.date}, ${e.company}: ${e.description}`)
     .join("\n");
 
   const faqs = faq.items
@@ -48,10 +48,12 @@ export function buildKnowledgeContext() {
     .join("\n\n");
 
   return `
-You are the portfolio assistant for ${site.name} (${site.brand}).
+You are ${site.name} (${site.brand}) speaking in the first person on your own portfolio site.
 Role: ${site.role}. Studio: ${site.studio}.
 Location: ${site.location}.
 Tagline: ${site.tagline}
+
+Always reply as me (Abdullah) using "I" / "my" — never as a third-party assistant.
 
 Contact:
 - Email: ${site.email}
@@ -80,10 +82,10 @@ FAQ:
 ${faqs}
 
 Rules:
-- Answer only about Abdullah, his work, services, projects, skills, pricing process, and contact.
-- Be friendly, short, and professional.
-- If asked to hire or start a project, share email/WhatsApp and suggest the contact form.
-- If you don't know something, say so and suggest contacting Abdullah directly.
+- Answer only about my work, services, projects, skills, pricing process, and contact.
+- Be friendly, short, and professional, in first person.
+- If asked to hire or start a project, share my email or WhatsApp and suggest the contact form.
+- If you don't know something, say so and invite them to email or WhatsApp me.
 - Do not invent clients, prices, or fake project results.
 `.trim();
 }
@@ -95,23 +97,23 @@ export function localChatReply(message) {
   const q = String(message || "").toLowerCase().trim();
 
   if (!q) {
-    return "Please type a question about Abdullah's services, projects, or contact info.";
+    return "Ask me anything about my services, projects, or how to get in touch.";
   }
 
   if (/(hi|hello|hey|salam|assalam)/.test(q)) {
-    return `Hello! I'm ${chatbotConfig.name}. I can tell you about ${site.name}'s services, projects, skills, and how to get in touch.`;
+    return `Hey! I'm ${site.name}. Happy to tell you about my services, projects, skills, and how we can work together.`;
   }
 
   if (/(who are you|your name|about you|about abdullah|who is abdullah)/.test(q)) {
-    return `${site.name} is an ${site.role} and founder of ${site.studio}, based in ${site.location}. ${site.tagline}`;
+    return `I'm ${site.name} — an ${site.role} and founder of ${site.studio}, based in ${site.location}. ${site.tagline}`;
   }
 
   if (/(service|offer|do you do|what can you|hire)/.test(q)) {
     const list = services.items.map((s) => `• ${s.title}`).join("\n");
-    return `Abdullah offers:\n${list}\n\nWant details on one service? Ask by name (e.g. "AI chatbot" or "backend API").`;
+    return `Here's what I offer:\n${list}\n\nWant details on one service? Ask by name (e.g. "AI chatbot" or "backend API").`;
   }
 
-  if (/(project|portfolio|work|fixit|safesafar|bdzb|aqt|cms|talks)/.test(q)) {
+  if (/(project|portfolio|work|fixit|safesafar|bdzb|social project|aqt|cms|talks)/.test(q)) {
     const match = projects.items.find((p) =>
       q.includes(p.title.toLowerCase().split(" ")[0].toLowerCase()) ||
       p.title.toLowerCase().split(" ").some((w) => w.length > 3 && q.includes(w.toLowerCase()))
@@ -120,38 +122,38 @@ export function localChatReply(message) {
       return `${match.title}: ${match.description}\nTech: ${match.tags.join(", ")}`;
     }
     const list = projects.items.map((p) => `• ${p.title}`).join("\n");
-    return `Here are Abdullah's featured projects:\n${list}\n\nAsk about any project by name for details.`;
+    return `Here are some of my featured projects:\n${list}\n\nAsk about any project by name for details.`;
   }
 
   if (/(skill|stack|technolog|python|django|fastapi|react)/.test(q)) {
     const list = stack.groups
       .map((g) => `• ${g.title}: ${g.items.join(", ")}`)
       .join("\n");
-    return `Tech stack:\n${list}`;
+    return `My tech stack:\n${list}`;
   }
 
   if (/(experience|intern|work history|intrapreneur|skill hunger|harbor)/.test(q)) {
     const list = experience.items
-      .map((e) => `• ${e.date} — ${e.company}`)
+      .map((e) => `• ${e.date}: ${e.company}`)
       .join("\n");
-    return `Recent experience:\n${list}\n\nAsk about a company name for more detail.`;
+    return `My recent experience:\n${list}\n\nAsk about a company name for more detail.`;
   }
 
   if (/(contact|email|phone|whatsapp|reach|cv|resume)/.test(q)) {
-    return `You can reach Abdullah at:\n• Email: ${site.email}\n• Phone: ${site.phone}\n• WhatsApp: https://wa.me/${site.phoneWhatsApp}\n• Resume: available on the Contact section\n\nOr use the contact form on this site.`;
+    return `You can reach me at:\n• Email: ${site.email}\n• Phone: ${site.phone}\n• WhatsApp: https://wa.me/${site.phoneWhatsApp}\n• Resume: available on the Contact section\n\nOr use the contact form on this site.`;
   }
 
   if (/(social|linkedin|youtube|instagram|github|facebook|tiktok|threads)/.test(q)) {
     const list = socialLinks.map((s) => `• ${s.label}: ${s.href}`).join("\n");
-    return `Social profiles:\n${list}`;
+    return `My social profiles:\n${list}`;
   }
 
   if (/(price|cost|rate|payment|fee)/.test(q)) {
-    return `Pricing depends on project scope. After a short discovery call, Abdullah shares a clear estimate. Payments usually via bank transfer, Payoneer, or Wise.`;
+    return `Pricing depends on project scope. After a short discovery call, I'll share a clear estimate. Payments are usually via bank transfer, Payoneer, or Wise.`;
   }
 
   if (/(thank|shukriya|thanks)/.test(q)) {
-    return "You're welcome! If you want to start a project, use the Contact section or WhatsApp.";
+    return "You're welcome! If you want to start a project, use the Contact section or WhatsApp me anytime.";
   }
 
   // Soft match services by keywords
@@ -167,5 +169,5 @@ export function localChatReply(message) {
     return `${serviceHit.title}: ${serviceHit.description}\nTools: ${serviceHit.meta}`;
   }
 
-  return `I can help with Abdullah's services, projects, skills, experience, and contact/social links.\n\nTry asking:\n• "What services do you offer?"\n• "Tell me about Fixit Vibe"\n• "How can I contact Abdullah?"`;
+  return `I can tell you about my services, projects, skills, experience, and how to contact me.\n\nTry asking:\n• "What services do you offer?"\n• "Tell me about Fixit Vibe"\n• "How can I contact you?"`;
 }

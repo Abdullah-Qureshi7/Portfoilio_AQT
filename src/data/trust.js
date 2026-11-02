@@ -6,7 +6,7 @@ export const trust = {
   items: [
     {
       icon: "fa-solid fa-graduation-cap",
-      label: "Software Engineering | University of Sindh",
+      label: "Software Engineering, University of Sindh",
     },
     {
       icon: "fa-brands fa-python",

@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Fade/slide-in when the element enters the viewport.
@@ -14,16 +14,17 @@ export default function Reveal({
   ...rest
 }) {
   const ref = useRef(null);
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
 
     // Safety: always show after 2.5s if observer fails
-    const fallback = setTimeout(() => el.classList.add("is-visible"), 2500);
+    const fallback = setTimeout(() => setVisible(true), 2500);
 
     if (!("IntersectionObserver" in window)) {
-      el.classList.add("is-visible");
+      setVisible(true);
       return () => clearTimeout(fallback);
     }
 
@@ -31,7 +32,7 @@ export default function Reveal({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-visible");
+            setVisible(true);
             io.unobserve(entry.target);
           }
         });
@@ -47,11 +48,12 @@ export default function Reveal({
   }, []);
 
   const delayClass = delay ? `reveal-delay-${delay}` : "";
+  const visibleClass = visible ? "is-visible" : "";
 
   return (
     <Tag
       ref={ref}
-      className={`reveal ${delayClass} ${className}`.trim()}
+      className={`reveal ${delayClass} ${visibleClass} ${className}`.trim()}
       {...rest}
     >
       {children}

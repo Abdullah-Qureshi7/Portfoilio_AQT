@@ -3,7 +3,12 @@
 /**
  * Soft 3D tilt on mouse move (projects + hero photo).
  */
-export default function TiltCard({ children, className = "", as: Tag = "div" }) {
+export default function TiltCard({
+  children,
+  className = "",
+  style,
+  as: Tag = "div",
+}) {
   function onMove(e) {
     const card = e.currentTarget;
     const r = card.getBoundingClientRect();
@@ -20,6 +25,7 @@ export default function TiltCard({ children, className = "", as: Tag = "div" }) 
   return (
     <Tag
       className={`tilt-card ${className}`.trim()}
+      style={style}
       onMouseMove={onMove}
       onMouseLeave={onLeave}
     >

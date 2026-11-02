@@ -1,6 +1,6 @@
 # Abdullah Qureshi Portfolio
 
-Next.js portfolio (component-based, easy to edit). Works on **Vercel free**.
+Next.js portfolio — **content is separated from design** so you can edit text easily.
 
 ## Quick start
 
@@ -11,55 +11,56 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
-## How to edit content (easy)
+## Edit content easily
 
-All text lives in `src/data/` — change values there, not inside components.
+**Only edit files in `src/data/`.**  
+Step-by-step map: [`src/data/EDIT.md`](src/data/EDIT.md)
 
-| Want to change… | Edit this file |
+| Want to change… | File |
 |---|---|
-| Name, email, phone, social links | `src/data/site.js` |
-| Hero headline & stats | `src/data/hero.js` |
-| About paragraphs | `src/data/about.js` |
+| Name, email, phone, socials, nav | `src/data/site.js` |
+| Hero | `src/data/hero.js` |
+| About | `src/data/about.js` |
 | Skills | `src/data/stack.js` |
 | Services | `src/data/services.js` |
 | Projects | `src/data/projects.js` |
-| YouTube videos | `src/data/youtube.js` |
 | Experience | `src/data/experience.js` |
-| Education | `src/data/education.js` |
-| Certifications | `src/data/certifications.js` |
-| Achievements | `src/data/achievements.js` |
-| Testimonials / FAQ / Contact copy | matching files in `src/data/` |
+| Education / Certs / Achievements | matching files in `src/data/` |
+| YouTube / Testimonials / FAQ / Contact | matching files in `src/data/` |
+| Chatbot text | `src/data/chatbot.js` |
 
-Images go in `public/assets/`.
+Images & resume → `public/assets/`
 
 ## Folder structure
 
 ```
 src/
-  app/                 → Next.js pages + API
-  components/
-    layout/            → Header, Footer
-    sections/          → Hero, About, Works, Youtube, Contact…
-    ui/                → small reusable pieces (Slider, Reveal…)
-  data/                → ALL editable content
-public/assets/         → images, resume, logos
+  data/          ← EDIT YOUR TEXT HERE (easy)
+  components/    ← layout/design (only if you change UI)
+  app/           ← pages + API routes
+public/assets/   ← images, logos, resume
 ```
 
 ## Contact form (Resend)
 
-1. Create API key at [resend.com](https://resend.com)
-2. Add `RESEND_API_KEY` in Vercel Environment Variables
-3. Update the `to` email in `src/app/api/send-email/route.js`
+1. Get a key at [resend.com](https://resend.com)
+2. Add `RESEND_API_KEY` in Vercel → Environment Variables
+3. Redeploy
+
+## Chatbot (optional AI)
+
+- Works **without** any key (answers from portfolio data)
+- For smarter AI: add `OPENROUTER_API_KEY` on Vercel, then redeploy
 
 ## Deploy on Vercel
 
-1. Push this repo to GitHub
-2. Import in Vercel (Framework = **Next.js** — auto detected)
-3. Add `RESEND_API_KEY`
-4. Deploy
+1. Push to GitHub  
+2. Import in Vercel (Next.js)  
+3. Add env vars if needed  
+4. Deploy  
 
 ## Scripts
 
-- `npm run dev` — local development
-- `npm run build` — production build
-- `npm start` — run production build locally
+- `npm run dev` — local development  
+- `npm run build` — production build  
+- `npm start` — run production build locally  

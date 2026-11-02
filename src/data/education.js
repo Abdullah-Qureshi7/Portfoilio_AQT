@@ -6,29 +6,34 @@
 export const education = {
   title: "Education",
   subtitle:
-    "My academic background, qualifications, and continuous learning journey in the field of technology",
+    "My academic background, qualifications, and continuous learning journey in the field of technology.",
   items: [
     {
       icon: "fa-solid fa-graduation-cap",
       title: "BS Software Engineering",
-      meta: "University of Sindh, Jamshoro | 2026",
+      meta: "University of Sindh, Jamshoro, 2026",
       summary:
-        "Course work and independent projects with a focus on backend development, databases, and software quality assurance.",
+        "A practical software engineering degree focused on backend systems, databases, AI applications, and quality assurance. Alongside coursework, I build real products that solve real problems.",
       highlights: [
-        "Backend focused Course work & projects",
-        "Built real applications outside class (Fixit Vibe, BDZB Foundation)",
-        "3 CGPA, Certification In Academic Activities",
+        "Strong foundation in software engineering principles and SDLC",
+        "Hands-on work with Python, Django, APIs, and databases",
+        "Built real applications beyond class (Fixit Vibe, Social Project)",
+        "Experience with AI projects, dashboards, and automation ideas",
+        "Academic CGPA 3.0 with active participation in tech activities",
       ],
     },
     {
       icon: "fa-solid fa-book-open",
       title: "Intermediate",
-      meta: "Hidayat-ul-Allah · 2021",
-      summary: "Focus On Engineering Course",
+      meta: "Hidayat-ul-Allah, 2021",
+      summary:
+        "Completed intermediate studies with a strong engineering focus, building the analytical base for software development through mathematics, physics, and computer fundamentals.",
       highlights: [
-        "With A+ Grade Pass",
-        "Strong in Maths | Phy | Computer",
-        "Participate in Events and educational Competition",
+        "Passed with A+ grade through consistent academic performance",
+        "Strong foundation in Mathematics, Physics, and Computer Science",
+        "Developed problem-solving and logical thinking skills early",
+        "Participated in educational events and learning competitions",
+        "Prepared the base for university-level software engineering",
       ],
     },
   ],

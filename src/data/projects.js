@@ -1,70 +1,69 @@
 /**
  * SELECTED WORKS / PROJECTS
  * Put images in: public/assets/project-img/
- * These 8 UIs also power the hero background slider.
+ * featured: true → shown in Portfolio (top 6)
+ * All items still power the hero background slider.
  */
 
 export const projects = {
-  title: "Selected Works",
+  title: "Portfolio",
+  subtitle: "Selected client-inspired products and platforms I’ve built.",
   githubLabel: "View GitHub Repository",
   githubUrl: "https://github.com/Abdullah-Qureshi7",
   items: [
     {
-      title: "Fixit Vibe",
+      title: "Social Project",
       description:
-        "Django based civic complaint reporting platform for tracking and resolving local issues.",
-      image: "/assets/project-img/Fixit_Vibe.png",
-      tags: ["Django", "Python", "JavaScript", "Bootstrap", "SQLite"],
-      link: "#",
-    },
-    {
-      title: "BDZB Foundation",
-      description:
-        "NGO platform supporting Thalassemia patients — donor management, events, and stories.",
+        "NGO platform supporting Thalassemia patients, donor management, events, and impact stories for a real community organization.",
       image: "/assets/project-img/BDZB_Founation.png",
       tags: ["Django", "React", "PostgreSQL", "JavaScript", "Bootstrap"],
       link: "#",
+      featured: true,
     },
     {
       title: "SafeSafar",
       description:
-        "A smart transportation management system designed to enhance student safety through real time vehicle tracking, attendance management, and communication features for parents and institutions.",
+        "Smart transport system for student safety with live tracking, attendance, and parent to institution communication.",
       image: "/assets/project-img/SafeSafar.png",
-      tags: [
-        "Laravel",
-        "PHP",
-        "JavaScript",
-        "Bootstrap",
-        "MySQL",
-        "Google Maps APIs",
-        "Twilio API",
-      ],
+      tags: ["Laravel", "PHP", "MySQL", "Google Maps", "Twilio"],
       link: "#",
+      featured: true,
     },
     {
-      title: "AI Powered Price Trend Analyzer",
+      title: "Fixit Vibe",
       description:
-        "An intelligent data analytics platform that analyzes and forecasts commodity price trends using machine learning techniques and interactive dashboards to provide meaningful insights.",
+        "Civic complaint platform for reporting, tracking, and resolving local issues with a clear public workflow.",
+      image: "/assets/project-img/Fixit_Vibe.png",
+      tags: ["Django", "Python", "JavaScript", "Bootstrap", "SQLite"],
+      link: "#",
+      featured: true,
+    },
+    {
+      title: "CMS Dashboard",
+      description:
+        "Modern content management dashboard for content, users, and analytics, built for real CMS style workflows.",
+      image: "/assets/project-img/CMS_DashBoard.png",
+      tags: ["Django", "JavaScript", "Bootstrap", "PostgreSQL"],
+      link: "#",
+      featured: true,
+    },
+    {
+      title: "AI Price Trend Analyzer",
+      description:
+        "ML-powered analytics dashboard that forecasts commodity price trends with clear, interactive insights.",
       image: "/assets/project-img/AI_Price_Analyzer.png",
-      tags: [
-        "Python",
-        "Streamlit",
-        "Numpy",
-        "Pandas",
-        "Scikit Learn",
-        "Matplotlib",
-        "ARIMA",
-        "Googletrans",
-      ],
+      tags: ["Python", "Streamlit", "Pandas", "Scikit-learn", "ARIMA"],
       link: "#",
+      featured: true,
     },
     {
-      title: "AQT AI | Intelligent Conversational AI Platform",
+      title: "AQT AI",
       description:
-        "An AI-powered conversational platform designed to deliver intelligent, context-aware interactions through modern large language models.",
+        "Intelligent conversational AI platform for context-aware chats powered by modern LLMs.",
       image: "/assets/project-img/AQT_AI.png",
-      tags: ["Python", "Flask", "OpenRouter API", "JavaScript", "Bootstrap"],
+      tags: ["Python", "Flask", "OpenRouter", "JavaScript", "Bootstrap"],
       link: "#",
+      featured: true,
     },
     {
       title: "Software Quality Assurance",
@@ -80,14 +79,7 @@ export const projects = {
         "Jira",
       ],
       link: "#",
-    },
-    {
-      title: "CMS Dashboard",
-      description:
-        "A modern content management dashboard for managing content, users, and analytics in one place.",
-      image: "/assets/project-img/CMS_DashBoard.png",
-      tags: ["Django", "JavaScript", "Bootstrap", "PostgreSQL"],
-      link: "#",
+      featured: false,
     },
     {
       title: "Talks AI",
@@ -96,6 +88,9 @@ export const projects = {
       image: "/assets/project-img/Talks_AI.png",
       tags: ["Python", "Flask", "AI APIs", "JavaScript"],
       link: "#",
+      featured: false,
     },
   ],
 };
+
+export const featuredProjects = projects.items.filter((item) => item.featured);

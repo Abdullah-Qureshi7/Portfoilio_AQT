@@ -1,6 +1,7 @@
 /**
  * WORK EXPERIENCE (timeline)
  * Items alternate left / right automatically in the UI.
+ * Logos: public/assets/Experience/ (official where available)
  */
 
 export const experience = {
@@ -11,26 +12,42 @@ export const experience = {
     {
       date: "Dec 2025",
       company: "Intrapreneur",
+      role: "SQA and PM Intern",
+      type: "Internship",
+      logo: "/assets/Experience/intrapreneur.png",
       description:
-        "SQA & PM Intern. Contributed to software quality assurance and Agile project management by performing manual testing, managing development workflows, ensuring design accuracy, and supporting reliable software delivery across multiple projects.",
+        "Contributed to software quality assurance and Agile project management through manual testing, workflow coordination, design accuracy checks, and reliable delivery across multiple projects.",
+      skills: ["Manual Testing", "Test Cases", "Bug Reporting", "Jira", "Agile", "Postman"],
     },
     {
       date: "July 2025",
       company: "Skill Hunger",
+      role: "AI Intern",
+      type: "Internship",
+      logo: "/assets/Experience/skill-hunger.png",
       description:
-        "AI Intern. Contributed to AI driven solutions by working on prompt engineering, NLP based applications, intelligent dashboards, AI powered resume ranking systems, and chatbot development to enhance automation and user experiences.",
+        "Built AI driven solutions with prompt engineering, NLP applications, intelligent dashboards, resume ranking systems, and chatbot features that improve automation and user experience.",
+      skills: ["Python", "Prompt Engineering", "NLP", "OpenAI", "Streamlit", "Chatbots"],
     },
     {
       date: "Jan 2026",
       company: "Harbor Academy",
+      role: "Technology Instructor",
+      type: "Teaching",
+      logo: "/assets/Experience/harbor-academy.png",
       description:
-        "Delivered practical technology education by teaching programming and modern development skills. Mentored students through learning, project based training, and industry relevant technologies to help them build strong technical foundations.",
+        "Delivered practical technology education in programming and modern development. Mentored students through project based training and industry relevant skills to build strong technical foundations.",
+      skills: ["Python", "JavaScript", "HTML", "CSS", "Git", "Project Mentoring"],
     },
     {
       date: "Ongoing",
       company: "InnovenceSolutions",
+      role: "Founder",
+      type: "Studio",
+      logo: "/assets/Experience/innovence-solutions.png",
       description:
-        "Taking on freelance backend and QA projects under my own studio while completing my degree.",
+        "Taking on freelance backend and QA projects under my own studio while completing my degree, with a focus on reliable delivery and clear communication.",
+      skills: ["Python", "Django", "FastAPI", "REST APIs", "PostgreSQL", "QA"],
     },
   ],
 };

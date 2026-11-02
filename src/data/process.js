@@ -14,7 +14,7 @@ export const process = {
     },
     {
       icon: "fa-solid fa-pen-ruler",
-      title: "Planning & Design",
+      title: "Planning and Design",
       description: "Architecture, schema, and scope",
     },
     {

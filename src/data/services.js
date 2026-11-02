@@ -1,60 +1,75 @@
 /**
- * SERVICES (slider cards)
+ * SERVICES alternating feature rows
  */
 
 export const services = {
   title: "Specialized Services",
   subtitle:
-    "Focused offerings, not a generic list — this is what I'm actually strong at.",
+    "Focused offerings, not a generic list. This is what I'm actually strong at.",
   items: [
     {
-      icon: "fa-solid fa-table-cells-large",
-      title: "AI Powered Applications",
+      tag: "Development",
+      title: "Full Stack Web Application",
       description:
-        "Building intelligent applications that use AI to solve real-world problems.",
-      meta: "Python · OpenAI APIs · OpenRouter · LangChain · FastAPI",
+        "Building complete web solutions from frontend to backend, including REST APIs, third party integrations, databases, and production ready apps.",
+      highlight: "End to end web products ready for real users and growth.",
+      points: [
+        "Frontend and backend web applications",
+        "REST APIs and third party integrations",
+        "Database design and scalable architecture",
+        "React, Django, FastAPI, PostgreSQL",
+      ],
+      image: "/assets/project-img/SafeSafar.png",
+      imageAlt: "SafeSafar full stack web application preview",
+      href: "#contact",
     },
     {
-      icon: "fa-solid fa-shield-halved",
-      title: "Full Stack Web Applications",
+      tag: "Intelligence",
+      title: "AI Product Development",
       description:
-        "Creating complete web solutions from idea to production ready product.",
-      meta: "JavaScript · Django · Bootstrap · React",
+        "I build AI apps that solve real business problems, including chatbots, automation workflows, LLM features, and ML dashboards for clearer insights.",
+      highlight: "Practical AI that helps teams work faster and decide smarter.",
+      points: [
+        "Custom AI chatbots for websites and businesses",
+        "LLM powered features with OpenAI and OpenRouter",
+        "Smart automation that saves time and cost",
+        "AI dashboards, RAG search, and predictive insights",
+      ],
+      image: "/assets/project-img/AQT_AI.png",
+      imageAlt: "AI product development preview",
+      href: "#contact",
     },
     {
-      icon: "fa-solid fa-plug",
-      title: "Backend API Development",
+      tag: "CMS",
+      title: "CMS Website Development",
       description:
-        "Scalable, well documented REST APIs built with Django REST Framework or Flask.",
-      meta: "Python · DRF · Flask · Fast API · PostgreSQL · SQL",
+        "I design and build professional websites on modern CMS platforms, fast to launch, easy to manage, and tailored for business growth.",
+      highlight: "Clean, conversion focused websites your team can update easily.",
+      points: [
+        "Business websites and landing pages",
+        "Custom layouts and brand aligned design",
+        "Content setup and easy site management",
+        "WordPress, Wix, Shopify, Squarespace",
+      ],
+      image: "/assets/project-img/cms-website-service.jpg",
+      imageAlt: "CMS website development preview",
+      href: "#contact",
     },
     {
-      icon: "fa-solid fa-diagram-project",
-      title: "Data Analytics & Intelligent Dashboards",
+      tag: "Quality",
+      title: "Website QA and Testing",
       description:
-        "Transforming raw data into meaningful insights through interactive dashboards.",
-      meta: "Python · Numpy · Pandas · Streamlit · Scikit learn · Matplotlib",
-    },
-    {
-      icon: "fa-solid fa-screwdriver-wrench",
-      title: "AI Chatbots & Automation Systems",
-      description:
-        "Developing smart assistants and automation solutions to improve productivity.",
-      meta: "Python · Flask · FastAPI · AI APIs",
-    },
-    {
-      icon: "fa-solid fa-bezier-curve",
-      title: "API Integration",
-      description:
-        "Connecting third-party services and automating data flow between systems.",
-      meta: "REST · Webhooks",
-    },
-    {
-      icon: "fa-solid fa-bug",
-      title: "Website QA & Testing",
-      description:
-        "Manual test design, bug tracking, and regression passes before you ship.",
-      meta: "SQA · Test Cases",
+        "Structured QA with test cases, regression testing, bug reports, and API testing so your product ships stable and ready for users.",
+      highlight: "Catch issues early and ship with confidence.",
+      points: [
+        "Manual testing and clear test cases",
+        "Bug reports and defect tracking",
+        "API testing and regression checks",
+        "Postman, Selenium, Playwright, Jira",
+      ],
+      image: "/assets/project-img/SQA_Manual_Automation_Testing.png",
+      imageAlt: "Website QA and testing preview",
+      href: "#contact",
     },
   ],
 };

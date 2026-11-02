@@ -35,16 +35,57 @@ export default function Contact() {
     }
   }
 
-  return (
-    <section className="section-pad contact-section alt-bg" id="contact">
-      <div className="wrap">
-        <div className="contact-grid">
-          <Reveal className="contact-left">
-            <span className="eyebrow">{contact.eyebrow}</span>
-            <h2>{contact.title}</h2>
-            <p>{contact.description}</p>
+  const details = [
+    {
+      icon: "fa-solid fa-envelope",
+      label: "Email",
+      value: site.email,
+      href: `mailto:${site.email}`,
+    },
+    {
+      icon: "fa-solid fa-phone",
+      label: "Phone",
+      value: site.phone,
+      href: `tel:${site.phone.replace(/\s+/g, "")}`,
+    },
+    {
+      icon: "fa-brands fa-whatsapp",
+      label: "WhatsApp",
+      value: "Chat on WhatsApp",
+      href: `https://wa.me/${site.phoneWhatsApp}`,
+      external: true,
+    },
+    {
+      icon: "fa-solid fa-location-dot",
+      label: "Location",
+      value: site.location,
+    },
+    {
+      icon: "fa-solid fa-briefcase",
+      label: "Studio",
+      value: site.studio,
+    },
+  ];
 
-            <form className="glass-card" onSubmit={handleSubmit}>
+  return (
+    <section className="section-pad contact-section" id="contact">
+      <div className="wrap">
+        <Reveal className="contact-intro">
+          <span className="eyebrow">{contact.eyebrow}</span>
+          <h2>{contact.title}</h2>
+          <p>{contact.description}</p>
+        </Reveal>
+
+        <div className="contact-grid">
+          <Reveal className="contact-form-wrap">
+            <form className="glass-card contact-form" onSubmit={handleSubmit}>
+              <div className="contact-form-head">
+                <h3>{contact.formTitle}</h3>
+                <span className="contact-form-note">
+                  <Icon name="fa-solid fa-clock" /> {contact.formNote}
+                </span>
+              </div>
+
               <div className="form-row">
                 <div className="field">
                   <label htmlFor="cf-name">Name</label>
@@ -54,6 +95,7 @@ export default function Contact() {
                     placeholder="Your name"
                     required
                     type="text"
+                    autoComplete="name"
                   />
                 </div>
                 <div className="field">
@@ -64,11 +106,12 @@ export default function Contact() {
                     placeholder="you@email.com"
                     required
                     type="email"
+                    autoComplete="email"
                   />
                 </div>
               </div>
 
-              <div className="field full" style={{ marginBottom: 14 }}>
+              <div className="field">
                 <label htmlFor="cf-subject">Subject</label>
                 <input
                   id="cf-subject"
@@ -79,7 +122,7 @@ export default function Contact() {
                 />
               </div>
 
-              <div className="field full" style={{ marginBottom: 18 }}>
+              <div className="field">
                 <label htmlFor="cf-message">Message</label>
                 <textarea
                   id="cf-message"
@@ -90,7 +133,11 @@ export default function Contact() {
                 />
               </div>
 
-              <button className="btn btn-primary" type="submit" disabled={sending}>
+              <button
+                className="btn btn-primary contact-submit"
+                type="submit"
+                disabled={sending}
+              >
                 {sending ? (
                   "Sending..."
                 ) : (
@@ -100,39 +147,51 @@ export default function Contact() {
                 )}
               </button>
 
-              <div className={`form-status ${status.type}`.trim()}>
-                {status.message}
-              </div>
+              {status.message ? (
+                <div className={`form-status ${status.type}`.trim()} role="status">
+                  {status.message}
+                </div>
+              ) : null}
             </form>
           </Reveal>
 
-          <Reveal delay={1}>
+          <Reveal className="contact-side" delay={1}>
             <div className="contact-card glass-card">
               <h4>{contact.detailsTitle}</h4>
-              <div className="contact-line">
-                <span className="ic">
-                  <Icon name="fa-solid fa-envelope" />
-                </span>
-                {site.email}
+
+              <div className="contact-lines">
+                {details.map((item) =>
+                  item.href ? (
+                    <a
+                      key={item.label}
+                      className="contact-line"
+                      href={item.href}
+                      {...(item.external
+                        ? { target: "_blank", rel: "noopener noreferrer" }
+                        : {})}
+                    >
+                      <span className="ic" aria-hidden="true">
+                        <Icon name={item.icon} />
+                      </span>
+                      <span className="contact-line-text">
+                        <span className="contact-line-label">{item.label}</span>
+                        <span className="contact-line-value">{item.value}</span>
+                      </span>
+                    </a>
+                  ) : (
+                    <div className="contact-line" key={item.label}>
+                      <span className="ic" aria-hidden="true">
+                        <Icon name={item.icon} />
+                      </span>
+                      <span className="contact-line-text">
+                        <span className="contact-line-label">{item.label}</span>
+                        <span className="contact-line-value">{item.value}</span>
+                      </span>
+                    </div>
+                  )
+                )}
               </div>
-              <div className="contact-line">
-                <span className="ic">
-                  <Icon name="fa-solid fa-phone" />
-                </span>
-                {site.phone}
-              </div>
-              <div className="contact-line">
-                <span className="ic">
-                  <Icon name="fa-solid fa-location-dot" />
-                </span>
-                {site.location}
-              </div>
-              <div className="contact-line">
-                <span className="ic">
-                  <Icon name="fa-solid fa-briefcase" />
-                </span>
-                {site.studio}
-              </div>
+
               <a className="cv-btn" download href={site.resume}>
                 <Icon name="fa-solid fa-download" /> {contact.cvLabel}
               </a>

@@ -11,25 +11,34 @@ export const certifications = {
     {
       image: "/assets/Certifications/AI_Course.jfif",
       title:
-        "Artificial Intelligence | Job Oriented Skill Development Training",
-      meta: "BBSHRRDB · 2026",
+        "Artificial Intelligence, Job Oriented Skill Development Training",
+      issuer: "BBSHRRDB",
+      year: "2026",
+      meta: "BBSHRRDB, 2026",
       description:
-        "Successfully completed a 6 month Job Oriented Skill Development Training in Artificial Intelligence from Government College University Hyderabad, under the Government of Sindh initiative.",
+        "Completed a 6 month Job Oriented Skill Development Training in Artificial Intelligence at Government College University Hyderabad under the Government of Sindh initiative.",
+      tags: ["AI", "ML Basics", "Job Ready"],
     },
     {
       image:
         "/assets/Certifications/Postman - Postman API Fundamentals Student Expert - 2025-11-10 (1).png",
       title: "Postman API Fundamentals Expert",
-      meta: "Postman · 2025",
+      issuer: "Postman",
+      year: "2025",
+      meta: "Postman, 2025",
       description:
-        "Verified badge earned from Postman Academy showcasing foundational knowledge in API testing and Postman tools.",
+        "Verified Postman Academy badge covering API request design, collections, testing workflows, and practical tooling for reliable backend validation.",
+      tags: ["API Testing", "Postman", "Collections"],
     },
     {
       image: "/assets/Certifications/co-Founder.jpg",
       title: "ASPIRE Silicon Valley Cofounder Training Program",
-      meta: "ASPIRE Pakistan · 2025",
+      issuer: "ASPIRE Pakistan",
+      year: "2025",
+      meta: "ASPIRE Pakistan, 2025",
       description:
-        "Startup fundamentals, cofounder readiness, and early stage venture execution. Practical exposure to founder mindset, validation, and execution strategies.",
+        "Startup fundamentals and cofounder readiness with practical exposure to founder mindset, idea validation, and early stage venture execution.",
+      tags: ["Startup", "Founder", "Validation"],
     },
   ],
 };

@@ -6,13 +6,13 @@
 export const hero = {
   eyebrow: "OPEN FOR WORKS",
   name: "Abdullah Qureshi",
-  role: "AI Backend Developer",
-  founderTag: "Founder, InnovenceSolutions | open to Work & project work",
+  role: "Software Engineer",
+  founderTag: "Founder, InnovenceSolutions. Open to work and project work",
   description:
-    "I build AI Intelligent Products with Python | Django, FastAPI, Flask & AI Technologies | REST APIs | Cloud Computing | Automation | Website | Founder @InnovenceSolutions.",
+    "I build AI Intelligent Products with Python, Django, FastAPI, Flask and AI Technologies, REST APIs, Cloud Computing, Automation, and Website Development. Founder at InnovenceSolutions.",
   photo: "/assets/hero-portrait.png",
   photoAlt: "Abdullah Qureshi",
-  primaryCta: { label: "View My Work", href: "#work" },
+  primaryCta: { label: "View My Work", href: "#portfolio" },
   secondaryCta: { label: "Hire Me", href: "#contact" },
   stats: [
     { icon: "fa-solid fa-diagram-project", value: "60+", label: "Projects Built" },
