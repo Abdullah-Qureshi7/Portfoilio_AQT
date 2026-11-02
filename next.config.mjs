@@ -6,6 +6,10 @@ const nextConfig = {
   },
   // Hide the Next.js "N" dev indicator in the corner
   devIndicators: false,
+  // Avoid Next 15 server-react minify bug during prerender
+  experimental: {
+    optimizeServerReact: false,
+  },
 };
 
 export default nextConfig;
